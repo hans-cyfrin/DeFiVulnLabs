@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.so
 
 // We take Audius as an example. For more details, you can refer to Audius Governance Takeover Post-Mortem 7/23/22 and Remediation.
 // https://blog.audius.co/article/audius-governance-takeover-post-mortem-7-23-22
-
+//@audit-info Very good
 interface ILogic {
     function getguardianAddress() external returns (address);
 
@@ -62,8 +62,8 @@ contract ContractTest is Test {
         );
 
         /*
-In this case because the last byte of the proxyAdmin address is `0x72`, initialized was interpreted as a truthy value. 
-Similarly, because the second byte of the proxyAdmin address is `0xea`, 
+In this case because the last byte of the proxyAdmin address is `0x72`, initialized was interpreted as a truthy value.
+Similarly, because the second byte of the proxyAdmin address is `0xea`,
 initializing was also interpreted as a truthy value. This caused the initializer() modifier to always succeed:
 */
 

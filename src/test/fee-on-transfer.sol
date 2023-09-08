@@ -11,7 +11,7 @@ The actual deposited amount might be lower than the specified depositAmount of t
 
 VulnVault: Incompatability with deflationary / fee-on-transfer tokens
 
-Mitigation:  
+Mitigation:
 Transfer the tokens first and compare pre-/after token balances to compute the actual deposited amount.
 
 REF:
@@ -19,7 +19,7 @@ https://twitter.com/1nf0s3cpt/status/1671084918506684418
 https://medium.com/1inch-network/balancer-hack-2020-a8f7131c980e
 https://twitter.com/BlockSecTeam/status/1600442137811689473
 */
-
+//@audit-info Completed
 contract ContractTest is Test {
     STA STAContract;
     VulnVault VulnVaultContract;

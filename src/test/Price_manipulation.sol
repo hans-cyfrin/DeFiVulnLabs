@@ -9,10 +9,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 Name: Price manipulation
 
 Description:
-Incorrect price calculation over balanceOf, getReverse may refer to a situation 
+Incorrect price calculation over balanceOf, getReverse may refer to a situation
 where the price of a token or asset is not accurately calculated based on the balanceOf function.
 
-Mitigation:  
+Mitigation:
 Use a manipulation resistant oracle, chainlink, TWAP, etc.
 
 REF:
@@ -21,7 +21,7 @@ https://github.com/SunWeb3Sec/DeFiHackLabs/tree/main/past/2022#20221012-atk---fl
 https://github.com/SunWeb3Sec/DeFiHackLabs/tree/main/past/2022#20220807-egd-finance---flashloans--price-manipulation
 https://github.com/SunWeb3Sec/DeFiHackLabs/tree/main/past/2022#20220428-deus-dao---flashloan--price-oracle-manipulation
 */
-
+//@audit-info if a protocol has a flashloan function, it should have a price manipulation protection.
 contract ContractTest is Test {
     USDa USDaContract;
     USDb USDbContract;

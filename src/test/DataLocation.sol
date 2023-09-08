@@ -9,8 +9,8 @@ Name: Data Location Confusion Vulnerability
 Description:
 Misuse of storage and memory references of the user in the updaterewardDebt function.
 
-The function updaterewardDebt is updating the rewardDebt value of a UserInfo struct 
-that is stored in memory. The issue is that this won't persist between function calls. 
+The function updaterewardDebt is updating the rewardDebt value of a UserInfo struct
+that is stored in memory. The issue is that this won't persist between function calls.
 As soon as the function finishes executing, the memory is cleared and the changes are lost.
 
 Mitigation:
@@ -21,7 +21,7 @@ https://mudit.blog/cover-protocol-hack-analysis-tokens-minted-exploit/
 https://www.educative.io/answers/storage-vs-memory-in-solidity
 
 */
-
+//@audit-info Completed
 contract ContractTest is Test {
     Array ArrayContract;
 

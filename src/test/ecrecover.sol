@@ -8,11 +8,11 @@ Name: ecrecover returns address(0)
 
 Description:
 In the SimpleBank contract, the transfer function takes a message hash and a signature (v, r, s values) as inputs.
-It recovers the signer address and checks if it equals Admin. The vulnerability lies in the fact 
-that the ecrecover function may return a 0x0 address when the signature parameters 
+It recovers the signer address and checks if it equals Admin. The vulnerability lies in the fact
+that the ecrecover function may return a 0x0 address when the signature parameters
 are invali, If v value isn't 27 or 28. it will return address(0).
 
-Mitigation:  
+Mitigation:
 Verify that the result from ecrecover isn't 0 or instead use OpenZeppelin’s ECDSA library.
 
 REF:
@@ -20,7 +20,7 @@ https://twitter.com/1nf0s3cpt/status/1674268926761668608
 https://github.com/code-423n4/2021-09-swivel-findings/issues/61
 https://github.com/Kaiziron/numen_ctf_2023_writeup/blob/main/wallet.md
 */
-
+//@audit-info Completed
 contract ContractTest is Test {
     SimpleBank SimpleBankContract;
 

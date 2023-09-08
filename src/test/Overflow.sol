@@ -5,13 +5,13 @@ pragma solidity ^0.7.6;
 import "forge-std/Test.sol";
 
 /*
-Name: Integrate Overflow   
+Name: Integrate Overflow
 
 Description:
-The TimeLock has a flaw in the smart contract code that allows 
-an attacker to prematurely withdraw their deposited funds from the TimeLock contract. 
-The vulnerability arises due to an overflow in the increaseLockTime function, 
-which manipulates the lock time in a way that causes it to wrap around to 0, 
+The TimeLock has a flaw in the smart contract code that allows
+an attacker to prematurely withdraw their deposited funds from the TimeLock contract.
+The vulnerability arises due to an overflow in the increaseLockTime function,
+which manipulates the lock time in a way that causes it to wrap around to 0,
 enabling the attacker to withdraw their funds before the actual waiting period expires.
 
 This contract is designed to act as a time vault.
@@ -30,12 +30,12 @@ What happened?
 Attack caused the TimeLock.lockTime to overflow,
 and was able to withdraw before the 1 week waiting period.
 
-Impact: Solidity < 0.8 and without SafeMath 
+Impact: Solidity < 0.8 and without SafeMath
 
 Mitigation:
 To mitigate the Overflow vulnerability, use SafeMath library or use Solidity > 0.8
 */
-
+//@audit-info not relevant
 contract TimeLock {
     mapping(address => uint) public balances;
     mapping(address => uint) public lockTime;

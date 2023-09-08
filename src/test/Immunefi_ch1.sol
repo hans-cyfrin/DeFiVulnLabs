@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 // Immunefi #spotthebugchallenge!
 // https://twitter.com/immunefi/status/1557301712549023745
-
+//@audit-info Business logic
 contract ContractTest is Test {
     HerToken HerTokenContract;
 

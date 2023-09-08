@@ -11,19 +11,19 @@ Name: First deposit bug
 
 Description:
 First pool depositor can be front-run and have part of their deposit stolen
-In this case, we can control the variable "_supplied." 
-By depositing a small amount of loan tokens to obtain pool tokens, 
+In this case, we can control the variable "_supplied."
+By depositing a small amount of loan tokens to obtain pool tokens,
 we can front-run other depositors' transactions and inflate the price of pool tokens through a substantial "donation."
 Consequently, the attacker can withdraw a greater quantity of loan tokens than they initially possessed.
 
 This calculation issue arises because, in Solidity, if the pool token value for a user becomes less than 1,
 it is essentially rounded down to 0.
 
-Mitigation:  
-Consider minting a minimal amount of pool tokens during the first deposit 
-and sending them to zero address, this increases the cost of the attack. 
-Uniswap V2 solved this problem by sending the first 1000 LP tokens to the zero address. 
-The same can be done in this case i.e. when totalSupply() == 0, 
+Mitigation:
+Consider minting a minimal amount of pool tokens during the first deposit
+and sending them to zero address, this increases the cost of the attack.
+Uniswap V2 solved this problem by sending the first 1000 LP tokens to the zero address.
+The same can be done in this case i.e. when totalSupply() == 0,
 send the first min liquidity LP tokens to the zero address to enable share dilution.
 
 REF:
@@ -31,7 +31,7 @@ https://defihacklabs.substack.com/p/solidity-security-lesson-2-first
 https://github.com/sherlock-audit/2023-02-surge-judging/issues/1
 https://github.com/transmissions11/solmate/issues/178
 */
-
+//@audit-info Completed
 contract ContractTest is Test {
     SimplePool SimplePoolContract;
     MyToken MyTokenContract;

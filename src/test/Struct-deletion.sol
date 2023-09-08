@@ -7,25 +7,25 @@ import "forge-std/Test.sol";
 Name: Struct Deletion Oversight
 
 Description:
-Incomplete struct deletion leaves residual data. 
+Incomplete struct deletion leaves residual data.
 If you delete a struct containing a mapping, the mapping won't be deleted.
 
-The bug arises because Solidity's delete keyword does not reset the storage to its 
-initial state but rather performs a partial reset. 
-When delete  myStructs[structId] is called, 
-it only resets the id at mappingId to its default value 0, 
+The bug arises because Solidity's delete keyword does not reset the storage to its
+initial state but rather performs a partial reset.
+When delete  myStructs[structId] is called,
+it only resets the id at mappingId to its default value 0,
 but the other flags in the mapping remain unchanged. Therefore,
-if the struct is deleted without deleting the mapping inside, 
+if the struct is deleted without deleting the mapping inside,
 the remaining flags will persist in storage.
 
-Mitigation:  
+Mitigation:
 To fix this bug, you should delete the mapping inside the struct before deleting the struct itself.
 
 REF:
 https://twitter.com/1nf0s3cpt/status/1676836264245592065
 https://docs.soliditylang.org/en/develop/types.html
 */
-
+//@audit-info OK
 contract ContractTest is Test {
     StructDeletionBug StructDeletionBugContract;
     FixedStructDeletion FixedStructDeletionContract;

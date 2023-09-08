@@ -7,13 +7,13 @@ import "forge-std/Test.sol";
 Name: Bypass isContract() validation
 
 Description:
-The attacker only needs to write the code in the constructor of the smart contract 
+The attacker only needs to write the code in the constructor of the smart contract
 to bypass the detection mechanism of whether it is a smart contract.
 
 REF:
 https://www.infuy.com/blog/bypass-contract-size-limitations-in-solidity-risks-and-prevention/
 */
-
+//@audit-info Completed
 contract ContractTest is Test {
     Target TargetContract;
     FailedAttack FailedAttackContract;

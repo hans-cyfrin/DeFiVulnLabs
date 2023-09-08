@@ -7,10 +7,10 @@ import "./interface.sol";
 Name: Read-Only Reentrancy Vulnerability
 
 Description:
-The Read-Only Reentrancy Vulnerability is a flaw in smart contract design that allows attackers 
-to exploit the "read-only" nature of a function to make unintended changes to the contract's state. 
-Specifically, the vulnerability arises when an attacker uses the remove_liquidity function of the ICurve contract 
-to trigger the receive function in the ExploitContract. This is achieved by an external call 
+The Read-Only Reentrancy Vulnerability is a flaw in smart contract design that allows attackers
+to exploit the "read-only" nature of a function to make unintended changes to the contract's state.
+Specifically, the vulnerability arises when an attacker uses the remove_liquidity function of the ICurve contract
+to trigger the receive function in the ExploitContract. This is achieved by an external call
 from a secure smart contract "A" invoking the fallback() function in the attacker's contract.
 
 Through this exploit, the attacker gains the ability to execute code within the fallback() function
@@ -34,7 +34,7 @@ https://medium.com/@zokyo.io/read-only-reentrancy-attacks-understanding-the-thre
 https://www.youtube.com/watch?v=0fgGTRlsDxI
 
 */
-
+//@audit-info OK
 interface ICurve {
     function get_virtual_price() external view returns (uint);
 

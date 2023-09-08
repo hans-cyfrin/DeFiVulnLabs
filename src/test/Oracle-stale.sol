@@ -7,11 +7,11 @@ import "forge-std/Test.sol";
 Name: Oracle data feed is insufficiently validated
 
 Description:
-Chainlink price feed latestRoundData is used to retrieve price feed from chainlink. 
+Chainlink price feed latestRoundData is used to retrieve price feed from chainlink.
 We need to makes sure that the answer is not negative and  price is not stale.
 
 Mitigation:
-latestAnswer function is deprecated. Instead, use the latestRoundData function 
+latestAnswer function is deprecated. Instead, use the latestRoundData function
 to retrieve the price and make sure to add checks for stale data.
 
 REF:
@@ -20,7 +20,7 @@ https://github.com/sherlock-audit/2023-02-blueberry-judging/issues/94
 https://code4rena.com/reports/2022-10-inverse#m-17-chainlink-oracle-data-feed-is-not-sufficiently-validated-and-can-return-stale-price
 https://docs.chain.link/data-feeds/historical-data#getrounddata-return-values
 */
-
+//@audit-info OK
 contract ContractTest is Test {
     AggregatorV3Interface internal priceFeed;
 

@@ -8,8 +8,8 @@ Name: Storage Collision Vulnerability
 
 Description:
 The vulnerability is that both the Proxy and Logic contracts use the same storage slot (slot 0) to store important variables,
-namely the implementation address in the Proxy contract and the GuestAddress in the Logic contract. 
-Since the Proxy contract is using the delegatecall method to interact with the Logic contract, 
+namely the implementation address in the Proxy contract and the GuestAddress in the Logic contract.
+Since the Proxy contract is using the delegatecall method to interact with the Logic contract,
 they share the same storage. If the foo function is called,
 it overwrites the implementation address in the Proxy contract, which results in an unexpected behavior.
 
@@ -19,7 +19,7 @@ One approach to mitigating this issue is to design the storage layout of the pro
 REF:
 https://blog.openzeppelin.com/proxy-patterns
 */
-
+//@audit-info Good, never use a state variable in a proxy contract
 contract ContractTest is Test {
     Logic LogicContract;
     Proxy ProxyContract;

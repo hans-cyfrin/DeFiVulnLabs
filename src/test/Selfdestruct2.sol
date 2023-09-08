@@ -7,7 +7,7 @@ import "forge-std/Test.sol";
 This excersise is about selfdestructing (deprecated) and force sending ether to a contract
 Force implements neither receive nor fallaback functions. Calls with any value will revert.
 */
-
+//@audit-info not relevant
 contract ContractTest is Test {
     Force ForceContract;
     Attack AttackerContract;

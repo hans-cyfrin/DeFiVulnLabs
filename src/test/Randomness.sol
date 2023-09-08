@@ -7,7 +7,7 @@ import "forge-std/Test.sol";
 Name: Predictable Randomness Vulnerability
 
 Description:
-Use of global variables like block hash, block number, 
+Use of global variables like block hash, block number,
 block timestamp and other fields is insecure, miner and attacker can control it.
 
 Scenario:
@@ -29,9 +29,9 @@ Don't use blockhash and block.timestamp as source of randomness
 
 REF:
 https://solidity-by-example.org/hacks/randomness/
- 
-*/
 
+*/
+//@audit-info good
 contract ContractTest is Test {
     GuessTheRandomNumber GuessTheRandomNumberContract;
     Attack AttackerContract;

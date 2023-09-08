@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 interface imp {
     function initialize(address) external;
 }
-
+//@audit-info Nothing big
 contract ContractTest is Test {
     Proxy ProxyContract;
     Implementation ImplementationContract;

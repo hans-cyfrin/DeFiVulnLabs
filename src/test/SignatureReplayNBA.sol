@@ -6,12 +6,12 @@ import "forge-std/Test.sol";
 /*
 We use NBA NFT incident as an example.
 
-‘Association NFT’ collection by the NBA, which triggers the ‘Allow list’ to sell out permanently. 
+‘Association NFT’ collection by the NBA, which triggers the ‘Allow list’ to sell out permanently.
 
-This vulnerability could’ve allowed any malicious entity to mint several NFTs without paying any tokens. 
+This vulnerability could’ve allowed any malicious entity to mint several NFTs without paying any tokens.
 
 This contract fails to verify that a signature can be used only once.
-*/
+*///@audit-info OK
 interface INBA {
     struct vData {
         bool mint_free;

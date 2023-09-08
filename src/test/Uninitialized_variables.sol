@@ -9,13 +9,13 @@ import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 Name: Uninitialized variable Vulnerability
 
 Description:
-Uninitialized local storage variables may contain the value of other storage variables in the contract; 
+Uninitialized local storage variables may contain the value of other storage variables in the contract;
 this fact can cause unintentional vulnerabilities, or be exploited deliberately.
 
 REF:
 https://blog.dixitaditya.com/ethernaut-level-25-motorbike
 */
-
+//@audit-info not accurate explanation above. this is about uninitialized implementation when proxy is used
 contract ContractTest is Test {
     Engine EngineContract;
     Motorbike MotorbikeContract;

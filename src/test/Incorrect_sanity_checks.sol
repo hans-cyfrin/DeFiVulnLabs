@@ -6,14 +6,14 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /*
-Name: Incorrect sanity checks - Multiple Unlocks Before Lock Time Elapse 
+Name: Incorrect sanity checks - Multiple Unlocks Before Lock Time Elapse
 
 Description:
-The bug lies in the unlockToken function, which lacks a check to ensure that block.timestamp is larger than locktime. 
-This allows tokens to be unlocked multiple times before the lock period has elapsed, 
+The bug lies in the unlockToken function, which lacks a check to ensure that block.timestamp is larger than locktime.
+This allows tokens to be unlocked multiple times before the lock period has elapsed,
 potentially leading to significant financial loss.
- 
-Mitigation:  
+
+Mitigation:
 Add a require statement to check that the current time is greater than the lock time before the tokens can be unlocked.
 
 or fix:
@@ -27,7 +27,7 @@ REF:
 https://twitter.com/1nf0s3cpt/status/1681492477281468420
 https://blog.decurity.io/dx-protocol-vulnerability-disclosure-bddff88aeb1d
 */
-
+//@audit-info Nothing big
 contract ContractTest is Test {
     VulnerableBank VulnerableBankContract;
     BanksLP BanksLPContract;

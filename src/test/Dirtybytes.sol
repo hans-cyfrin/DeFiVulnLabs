@@ -6,17 +6,17 @@ import "forge-std/Test.sol";
 
 /*
 Name: Dirtybytes in > Solidity 0.8.15
-    "description": "Copying ``bytes`` arrays from memory or calldata to storage is done in chunks of 32 bytes even if the length is not a multiple of 32. 
-    Thereby, extra bytes past the end of the array may be copied from calldata or memory to storage. 
+    "description": "Copying ``bytes`` arrays from memory or calldata to storage is done in chunks of 32 bytes even if the length is not a multiple of 32.
+    Thereby, extra bytes past the end of the array may be copied from calldata or memory to storage.
     These dirty bytes may then become observable after a ``.push()`` without arguments to the bytes array in storage,
-    i.e. such a push will not result in a zero value at the end of the array as expected. 
+    i.e. such a push will not result in a zero value at the end of the array as expected.
     This bug only affects the legacy code generation pipeline, the new code generation pipeline via IR is not affected."
-    
+
     "link": https://blog.soliditylang.org/2022/06/15/dirty-bytes-array-to-storage-bug/
     "fixed": 0.8.15
 
 */
-
+//@audit-info New: be careful using assembly
 contract ContractTest is Test {
     Dirtybytes Dirtybytesontract;
 

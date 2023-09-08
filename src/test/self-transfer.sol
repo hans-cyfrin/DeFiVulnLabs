@@ -7,13 +7,13 @@ import "forge-std/Test.sol";
 Name: Missing Check for Self-Transfer Allows Funds to be Lost
 
 Description:
-The vulnerability in the code stems from the absence of a check to prevent self-transfers. 
-This oversight allows the transfer function to erroneously transfer funds to the same address. 
+The vulnerability in the code stems from the absence of a check to prevent self-transfers.
+This oversight allows the transfer function to erroneously transfer funds to the same address.
 Consequently, funds are lost as the code fails to deduct the transferred amount from the sender's balance.
-This vulnerability undermines the correctness of fund transfers within the contract and poses a risk 
+This vulnerability undermines the correctness of fund transfers within the contract and poses a risk
 to the integrity of user balances.
- 
-Mitigation:  
+
+Mitigation:
 Add condition to prevent transfer between same addresses
 
 REF:
@@ -21,7 +21,7 @@ https://twitter.com/1nf0s3cpt/status/1679373800327241728
 https://github.com/code-423n4/2022-10-traderjoe-findings/issues/299
 https://www.immunebytes.com/blog/bzxs-security-focused-relaunch-followed-by-a-hack-how/
 */
-
+//@audit-info Good one
 contract ContractTest is Test {
     SimpleBank VSimpleBankContract;
     FixedSimpleBank FixedSimpleBankContract;

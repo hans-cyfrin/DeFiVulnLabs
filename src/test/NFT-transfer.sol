@@ -9,14 +9,14 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 Name: Unauthorized NFT Transfer in custom ERC721 implementation.
 
 Description:
-Custom transferFrom function in contract VulnerableERC721, 
+Custom transferFrom function in contract VulnerableERC721,
 does not properly check if msg.sender is the current owner of the token or an approved address.
-As a result, any address can call the transferFrom function to transfer any token, 
-regardless of who the current owner is. 
+As a result, any address can call the transferFrom function to transfer any token,
+regardless of who the current owner is.
 This allows unauthorized users to transfer tokens they do not own, leading to potential theft of assets.
 
- 
-Mitigation:  
+
+Mitigation:
 To ensure that msg.sender is the current owner of the token or an approved address.
 
 REF:
@@ -25,7 +25,7 @@ https://blog.decurity.io/scanning-for-vulnerable-erc721-implementations-fe19200b
 https://ventral.digital/posts/2022/8/18/sznsdaos-bountyboard-unauthorized-transferfrom-vulnerability
 https://github.com/pessimistic-io/slitherin/blob/master/docs/nft_approve_warning.md
 */
-
+//@audit-info Nothing big, sanity check on the custom tokens
 contract ContractTest is Test {
     VulnerableERC721 VulnerableERC721Contract;
     FixedERC721 FixedERC721Contract;

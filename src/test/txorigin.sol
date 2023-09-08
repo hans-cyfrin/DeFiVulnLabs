@@ -7,7 +7,7 @@ import "forge-std/Test.sol";
 Name: Insecure tx.origin Vulnerability
 
 Description:
-tx.origin is a global variable in Solidity; using this variable for authentication in 
+tx.origin is a global variable in Solidity; using this variable for authentication in
 a smart contract makes the contract vulnerable to phishing attacks.
 
 Scenario:
@@ -27,7 +27,7 @@ It is advisable to use msg.sender.
 REF:
 https://hackernoon.com/hacking-solidity-contracts-using-txorigin-for-authorization-are-vulnerable-to-phishing
 */
-
+//@audit-info OK
 contract ContractTest is Test {
     Wallet WalletContract;
     Attack AttackerContract;

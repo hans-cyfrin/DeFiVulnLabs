@@ -7,11 +7,11 @@ import "forge-std/Test.sol";
 Name: Reentrancy Vulnerability
 
 Description:
-The EtherStore Reentrancy Vulnerability is a flaw in the smart contract design that allows 
-an attacker to exploit reentrancy and withdraw more funds than they are entitled to from the EtherStore contract. 
+The EtherStore Reentrancy Vulnerability is a flaw in the smart contract design that allows
+an attacker to exploit reentrancy and withdraw more funds than they are entitled to from the EtherStore contract.
 The vulnerability arises due to the withdrawFunds function in the EtherStore contract,
-where the Ether is transferred to the attacker's address before updating their balance. 
-This allows the attacker's contract to make a reentrant call back to the withdrawFunds function before the balance update, 
+where the Ether is transferred to the attacker's address before updating their balance.
+This allows the attacker's contract to make a reentrant call back to the withdrawFunds function before the balance update,
 leading to multiple withdrawals and potentially draining all the Ether from the EtherStore contract.
 
 Scenario:
@@ -26,7 +26,7 @@ https://slowmist.medium.com/introduction-to-smart-contract-vulnerabilities-reent
 https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/
 
 */
-
+//@audit-info OK
 contract EtherStore {
     mapping(address => uint256) public balances;
 

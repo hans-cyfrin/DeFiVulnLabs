@@ -37,6 +37,7 @@ REF:
 https://twitter.com/1nf0s3cpt/status/1600868995007410176
 
 */
+//@audit-info use safeTransfer instead of transfer
 interface USDT {
     function transfer(address to, uint256 value) external;
 

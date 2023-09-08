@@ -17,7 +17,7 @@ REF
 https://quillaudits.medium.com/accessing-private-data-in-smart-contracts-quillaudits-fe847581ce6d
 
 */
-
+//@audit-info good
 contract ContractTest is Test {
     Vault VaultContract;
 

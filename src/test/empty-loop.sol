@@ -10,8 +10,8 @@ Name: Empty loop issue
 Description:
 Due to insufficient validation, an attacker can simply pass an empty array to bypass the loop and signature verification.
 
-Mitigation:  
-Check the number of signatures  
+Mitigation:
+Check the number of signatures
 require(sigs.length > 0, "No signatures provided");
 
 REF:
@@ -19,6 +19,7 @@ https://twitter.com/1nf0s3cpt/status/1673195574215213057
 https://twitter.com/akshaysrivastv/status/1648310441058115592
 https://dacian.me/exploiting-developer-assumptions#heading-unexpected-empty-inputs
 */
+//@audit-info Completed
 contract ContractTest is Test {
     SimpleBank SimpleBankContract;
 

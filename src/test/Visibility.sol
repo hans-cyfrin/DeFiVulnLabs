@@ -6,22 +6,22 @@ import "forge-std/Test.sol";
 Name: Improper Access Control Vulnerability
 
 Description:
-The default visibility of the function is Public. 
+The default visibility of the function is Public.
 If there is an unsafe visibility setting, the attacker can directly call the sensitive function in the smart contract.
 
 The ownerGame contract has a changeOwner function that is intended to change the owner of the contract.
-However, due to improper access control, this function is publicly accessible and 
+However, due to improper access control, this function is publicly accessible and
 can be called by any external account or contract. As a result, an attacker can call this function
 to change the ownership of the contract and take control.
 
 Impact: the owner of the contract can be changed by anyone.
 
 Mitigation:
-Use access control modifiers: Solidity provides modifiers, such as onlyOwner, 
+Use access control modifiers: Solidity provides modifiers, such as onlyOwner,
 which can be used to restrict the access of functions
- 
-*/
 
+*/
+//@audit-info OK
 contract ContractTest is Test {
     ownerGame ownerGameContract;
 

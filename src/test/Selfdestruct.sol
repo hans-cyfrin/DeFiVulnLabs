@@ -7,10 +7,10 @@ import "forge-std/Test.sol";
 Name: Self-Destruct Vulnerability
 
 Description:
-The EtherGame Self-Destruct Vulnerability is a flaw in the smart contract code that allows an attacker 
-to disrupt the game by causing the EtherGame contract to self-destruct (using the selfdestruct opcode). 
+The EtherGame Self-Destruct Vulnerability is a flaw in the smart contract code that allows an attacker
+to disrupt the game by causing the EtherGame contract to self-destruct (using the selfdestruct opcode).
 The vulnerability arises due to the dos function in the Attack contract, which performs a self-destruct
-operation on the EtherGame contract after receiving a significant amount of Ether. As a result of the self-destruct, 
+operation on the EtherGame contract after receiving a significant amount of Ether. As a result of the self-destruct,
 the EtherGame contract's functionality is permanently disabled, making it impossible for anyone to deposit or claim the winner's reward.
 
 Scenario:
@@ -26,10 +26,10 @@ Due to missing or insufficient access controls, malicious parties can self-destr
 The selfdestruct(address) function removes all bytecode from the contract address and sends all ether stored to the specified address.
 
 Mitigation:
-Instead of relying on this.balance to track the deposited Ether, 
+Instead of relying on this.balance to track the deposited Ether,
 use a state variable to keep track of the total deposited amount.
 */
-
+//@audit-info not relevant
 contract EtherGame {
     uint public constant targetAmount = 7 ether;
     address public winner;
@@ -93,7 +93,7 @@ contract ContractTest is Test {
             address(EtherGameContract).balance
         );
         console.log("Exploit completed, Game is over");
-        EtherGameContract.deposit{value: 1 ether}(); // This call will fail due to contract destroyed.
+        EtherGameContract.deposit{value: 1 ether}(); // This call will fail due to contract destroyed.//@audit-info wrong explanation
     }
 }
 

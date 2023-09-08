@@ -13,8 +13,8 @@ Description:
 The recoverERC20() function in StakingRewards.sol can potentially serve as a backdoor for the owner to retrieve rewardsToken.
 There is no corresponding check against the rewardsToken. This creates an administrative privilege where the owner can sweep the rewards tokens, potentially using it as a means to exploit depositors.
 It's similar to a forked issue if you forked vulnerable code.
- 
-Mitigation:  
+
+Mitigation:
 disallowing recovery of the rewardToken within the recoverErc20 function
 
 REF:
@@ -24,7 +24,7 @@ https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/49
 https://github.com/code-423n4/2022-10-paladin-findings/issues/40
 https://blog.openzeppelin.com/across-token-and-token-distributor-audit#anyone-can-prevent-stakers-from-getting-their-rewards
 */
-
+//@audit-info Admin risk
 contract ContractTest is Test {
     RewardToken RewardTokenContract;
     VulnStakingRewards VulnStakingRewardsContract;
